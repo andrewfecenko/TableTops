@@ -1,0 +1,125 @@
+from app import db
+from app.models import *
+
+with open ("drop_tables.sql", "r") as myfile:
+	schema = myfile.read().replace('\n', '')
+	result = db.engine.execute(schema)
+
+db.engine.execute(schema)
+
+# create the database and the db table
+db.create_all()
+
+user1 = app_users("123", "tona.arbeiter@gmail.com", "Arbeiter", "Tona")
+user2 = app_users("123", "vannesa.glassford@hotmail.com", "Glassford", "Vannesa")
+user3 = app_users("123", "aracelis@gmail.com", "James", "Aracelis")
+main_user = app_users("123", "main@test.com", "User", "Main", admin=True)
+db.session.add(user1)
+db.session.add(user2)
+db.session.add(user3)
+db.session.add(main_user)
+db.session.commit()
+
+
+space1 = spaces(user1.user_id, 
+				"Office Nomads",
+				"A large cast of various workers have called this place their main office. Typical jobs include designers, media artists, entertainment companies, startups and social innovators. The Icehouse is a really beautiful structure and it fits perfectly into the idea of a coworking space with many other freelancers and company teams.",
+				"2345 Yonge St",
+				"Ontario",
+				"Toronto",
+				"Canada",
+				124,
+				43.7088949,
+				-79.3981673,
+				35,
+				1350)
+
+space2 = spaces(user2.user_id, 
+				"Icehouse",
+				"After working hours the Icehouse will frequently host events related to social & political causes. Renting the Icehouse comes at a much cheaper price in comparison to working in the location. But overall this is a wonderful solution to those creative artists living in the south who need a cheaper alternative for a workspace.",
+				"2345 Yonge St",
+				"Ontario",
+				"Toronto",
+				"Canada",
+				124,
+				43.6088949,
+				-79.4981673,
+				45,
+				1432)
+
+space3 = spaces(user3.user_id, 
+				"General Assembly",
+				"There are so many fascinating coworking spaces inside New York City that it is difficult picking a single one. My first mention is General Assembly which is right on Broadway in a 4th floor open office area. The whole 'campus' area is 20,000 sq ft and was originally opened in January 2011.",
+				"2345 Yonge St",
+				"Ontario",
+				"Toronto",
+				"Canada",
+				124,
+				43.7088949,
+				-79.2981673,
+				33,
+				13553)
+
+space4 = spaces(user1.user_id, 
+				"Citizen Space",
+				"Citizen Space adheres to four basic principles when it comes to its day-to-day operations: collaboration, openness, community, and accessibility. Members can sit at designated desks, on couches, bean bag chairs, or in the cafe area. High-speed wifi makes it easy to get work done, but so do the free snacks.",
+				"2345 Yonge St",
+				"Ontario",
+				"Toronto",
+				"Canada",
+				124,
+				43.5088949,
+				-79.1981673,
+				353,
+				13531)
+
+space5 = spaces(user2.user_id, 
+				"CoLab",
+				"CoLab was founded in 2008 by John Hussey, a developer in Orlando, who really led the co-working movement in the southeast. In 2010, his daughter opened CoLab's Nashville location, and today both are thriving collaborative hubs with a 'professional open desk policy.'",
+				"2345 Yonge St",
+				"Ontario",
+				"Toronto",
+				"Canada",
+				124,
+				43.5088949,
+				-79.7981673,
+				35,
+				1353)
+
+space6 = spaces(user1.user_id, 
+				"The Coop",
+				"The Coop is the cool, North River neighborhood hangout for writers, web developers, acoustic engineers, designers, journalists, students, entrepreneurs and all kinds of independent workers. It is also home to One Design Company, which founded the space and wanted to share it.",
+				"2345 Yonge St",
+				"Ontario",
+				"Toronto",
+				"Canada",
+				124,
+				43.9088949,
+				-79.1981673,
+				15,
+				1353)
+db.session.add(space1)
+db.session.add(space2)
+db.session.add(space3)
+db.session.add(space4)
+db.session.add(space5)
+db.session.add(space6)
+db.session.commit()
+
+photo1 = space_photos(space1.space_id,"Inside","static/photos/uploads/space1.jpg")
+photo2 = space_photos(space2.space_id,"Inside","static/photos/uploads/space2.jpg")
+photo3 = space_photos(space3.space_id,"Inside","static/photos/uploads/space3.jpg")
+photo4 = space_photos(space4.space_id,"Inside","static/photos/uploads/space4.jpg")
+photo5 = space_photos(space5.space_id,"Inside","static/photos/uploads/space5.jpg")
+photo6 = space_photos(space6.space_id,"Inside","static/photos/uploads/space6.jpg")
+db.session.add(photo1)
+db.session.add(photo2)
+db.session.add(photo3)
+db.session.add(photo4)
+db.session.add(photo5)
+db.session.add(photo6)
+db.session.commit()
+
+
+
+

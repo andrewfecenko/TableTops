@@ -1,0 +1,25 @@
+{% extends "template.html" %}
+
+{% block body %}
+<h2>Join TableTops</h2>
+{% if error %}
+  <div>
+    {{error}}
+  </div>
+{% endif %}
+<form role="form" action="{{ url_for('register') }}" method="POST">
+  {{ reg_form.fname (placeholder="First Name", class="form-control") }}
+  <br>
+  {{ reg_form.lname (placeholder="Last Name", class="form-control") }}
+  <br>
+  {{ reg_form.email (placeholder="Email", class="form-control") }}
+  <br>
+  {{ reg_form.password (placeholder="Password", class="form-control") }}
+  <br>
+  {{ reg_form.confirm (placeholder="Confirm Password", class="form-control") }}
+
+  {{ reg_form.csrf_token }}
+  <br>
+  <button type="submit" value="Sign Up" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+
+{% block body %}
+<h2>{{search_type}} Search Results</h2>
+<div class="results well">
+  {% if results %}
+    {% for result in results %}
+    <div class="result well-row">
+      <div>
+        <span class="name">{{result.name}}</span>
+        <div>
+          {{result.info | safe}}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  {% else %}
+    No search results for '{{search_term}}' in {{search_type}}s
+  {% endif %}
+</div>
+
+{% endblock %}

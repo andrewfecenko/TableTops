@@ -1,0 +1,79 @@
+{% extends "template.html" %}
+
+{% block body %}
+    <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the business-casual.css file. -->
+    <header class="business-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">TableTops : Power In Sharing</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container fluid">
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>What We Do</h2>
+                <p>TableTop looks to turn office spaces into communities of likeminded individuals or small businesses. If you are looking for a place to get inspired, meet people with similar interests and get your independent work done then you’ve come to the right place. Coworking is about sharing you work environment while working independently. Take a look around and you’ll find plenty of spaces in your area that you can become a part of. </p>
+                <p>If you are a land lord and want to open up a new cowering space or are just looking to fill a few seats then TableTop will help you get there. Create a new office space, upload some pictures and we’ll expose you to hundreds of tenants looking for office space.</p>
+                <p>
+                    <a class="btn btn-default btn-lg" href="/spaces/explore">Explore Spaces &raquo;</a>
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h2>Contact Us</h2>
+                <address>
+                    <strong>CSC309 Team</strong>
+                    <br>Paul F
+                    <br>Rohan P
+                    <br>Andrew F
+                    <br>
+                </address>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <div class="row">
+          <h1 class="recent-spaces-text" align="center", style="margin-right: 50px;">Take a look at some recent spaces...</h1>
+          <br>
+          {% for space in spaces_recomend %}
+            <div class="col-sm-4">
+              <a href="{{ space.space_url }}">
+                <img class="img-circle img-responsive img-center" src="{{ space.photo_url }}" alt="">
+                <h2>{{space.space_name}}</h2>
+              </a>
+              <p>{{space.description}}</p>
+            </div>
+          {% endfor %}
+        </div>
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; TableTop 2014</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+{% endblock %}

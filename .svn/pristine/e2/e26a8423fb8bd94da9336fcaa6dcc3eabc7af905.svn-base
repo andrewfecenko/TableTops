@@ -1,0 +1,14 @@
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+# CHANGE THIS 
+# postgresql://user_name:password@localhost/database_name
+SQLALCHEMY_DATABASE_URI = "postgresql://postgres:12345@localhost/synspace"
+#SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+WTF_CSRF_ENABLED = True
+SECRET_KEY = '5E3Lkip847$H$PawMf489tVEa#eCU67KIJ}438mpG[nWaOV<u8g:ydC9RMs'
+WHOOSH_BASE = os.path.join(basedir, 'search.db')
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+UPLOAD_FOLDER = os.path.join(APP_ROOT, 'app/static/photos/uploads')
+
+#pagination
+MAX_SEARCH_RESULTS = 50

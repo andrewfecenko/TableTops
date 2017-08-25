@@ -1,0 +1,7 @@
+{% extends "template.html" %}
+
+{% block body %}
+<h2>{{ title }}</h2>
+  Your specified {{type}} cannot be found.
+</form>
+{% endblock %}

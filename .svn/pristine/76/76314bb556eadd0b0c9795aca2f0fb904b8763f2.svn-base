@@ -1,0 +1,81 @@
+﻿{% extends "template.html" %}
+
+{% block additionalCSS %}
+<link href="/static/css/bootstrap.css" rel="stylesheet" />
+<!-- FONT AWESOME  CSS -->
+<link href="/static/css/font-awesome.css" rel="stylesheet" />
+<!-- CUSTOM STYLE CSS -->
+<link href="/static/css/style.css" rel="stylesheet" />
+
+{% endblock %}
+{% block body %}
+
+
+    <div class="container">
+        <div class="row pad-top pad-bottom">
+
+            <div class="row">
+        <div class=" col-lg-6 col-md-6 col-sm-6">
+            <div class="chat-box-div">
+                <div class="chat-box-head">
+                    GROUP CHAT HISTORY
+                </div>
+
+                <div class="panel-body chat-box-main">
+                {% if group %}
+                    {% for grpp in group %}
+                    {% if grpp.first %}
+                    <div class="chat-box-left">
+                        {{grpp.mess}}
+                    </div>
+                    <div class="chat-box-name-left">
+                        - {{grpp.first}} {{grpp.last}}
+                    </div>
+                    <hr class="hr-clas" />
+                    {% endif %}
+                    {% endfor %}
+                {% endif %}
+                </div>
+                <div class="chat-box-footer">
+                    <form role="form" action="/message" method="POST">
+                        <input type="text" name="text-group" id="text-group" placeholder="Send a group message">
+                        <button type="submit" value="Message Group" class="btn btn-default">Send</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class=" col-lg-6 col-md-6 col-sm-6">
+            <div class="chat-box-div">
+                <div class="chat-box-head">
+                    Owner CHAT HISTORY
+                </div>
+                <div class="panel-body chat-box-main">
+                {% if owner_chat %}
+                    {% for own in owner_chat %}
+                    {% if own.first_own %}
+                    <div class="chat-box-left">
+                        {{own.message_own}}
+                    </div>
+                    <div class="chat-box-name-left">
+                        - {{own.first_own}} {{own.last_own}}
+                    </div>
+                    <hr class="hr-clas" />
+                    {% endif %}
+                    {% endfor %}
+                {% endif %}
+                </div>
+                <div class="chat-box-footer">
+                    <form role="form" action="/message" method="POST">
+                        <input type="text" name="text-owner" id="text-owner" placeholder="Send the owner a message">
+                        <button type="submit" value="Message Owner" class="btn btn-default">Send</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+

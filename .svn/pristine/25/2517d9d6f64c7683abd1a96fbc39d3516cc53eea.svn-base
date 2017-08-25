@@ -1,0 +1,73 @@
+﻿{% extends "template.html" %}
+
+{% block additionalCSS %}
+<link href="/static/css/bootstrap.css" rel="stylesheet" />
+<!-- FONT AWESOME  CSS -->
+<link href="/static/css/font-awesome.css" rel="stylesheet" />
+<!-- CUSTOM STYLE CSS -->
+<link href="/static/css/style.css" rel="stylesheet" />
+
+{% endblock %}
+{% block body %}
+
+<div class="container fluid">
+    {% if out_messages %}
+    <h4> Messages </h4>
+    <div class="review well fluid">
+        
+        <div class="row fluid">
+            <div class="col-sm-3 column fluid">
+                <ul class="list-group">
+                    {% for message in out_messages %}
+                    <a href ="/message/{{message.group_id}}"
+                        {% if default_id==message.group_id %}
+                        <li class="list-group-item active">
+                        {% else %}
+                        <li class="list-group-item">
+                        {% endif %}
+                            {{message.name}}
+                        </li>
+                    </a>
+                    {% endfor %}
+                </div>
+                </ul>
+            <div class="col-sm-9 column">
+                <div class="review well fluid">
+                    <ul class="list-group">
+                    {% for message in default_messages %}
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-sm-4 column fluid">
+                                <p style="word-wrap: break-word;">
+                                {{message.name}}<br>
+                                {{message.date}}
+                                </p>
+                                </div>
+                                <div class="col-sm-8 column fluid">
+                                <p style="word-wrap: break-word;">
+                                {{message.message}}
+                                </p>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                    <li class="list-group-item">
+                        <form role="form" method="POST" action="/message/{{default_id}}">
+                            <textarea id="message_id" name="message_id" rows=2 class="form-control" placeholder="Enter a message..."></textarea>
+                            <br>
+                            <button type="submit" value="Post" class="btn btn-default">Send Message</button>
+                        </form>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h3>You are not part of any spaces</h3>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+    

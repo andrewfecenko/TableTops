@@ -1,0 +1,72 @@
+﻿{% extends "template.html" %}
+
+{% block additionalCSS %}
+<link href="/static/css/bootstrap.css" rel="stylesheet" />
+<!-- FONT AWESOME  CSS -->
+<link href="/static/css/font-awesome.css" rel="stylesheet" />
+<!-- CUSTOM STYLE CSS -->
+<link href="/static/css/style.css" rel="stylesheet" />
+
+{% endblock %}
+{% block body %}
+
+
+    <div class="container">
+
+            <div class="row">
+        <div class=" col-lg-6 col-md-6 col-sm-6">
+            
+                 <h2>GROUP CHAT HISTORY</h2>
+                <ul>
+                {% if group %}
+                    {% for grpp in group %}
+                    {% if grpp.first %}
+                    <li>
+                        {{grpp.mess}}
+                    </li>
+                    <li>
+                    <p>
+                            - {{grpp.first}} {{grpp.last}}
+                    </p>
+                    `</li>
+                    <hr>
+                    {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+                <form role="form" action="/message" method="POST">
+                    <input type="text" name="text-group" id="text-group" placeholder="Send a group message">
+                    <button type="submit" value="Message Group" class="btn btn-default">Send</button>
+                </form>
+        </div>
+        <div class=" col-lg-6 col-md-6 col-sm-6">
+                 <h2>Owner CHAT HISTORY</h2>
+                
+
+                <ul>
+                {% if owner_chat %}
+                    {% for chat in owner_chat %}
+                    {% if chat.first_own %}
+                    <li>
+                        {{chat.message_own}}
+                    </li>
+                    <li>
+                    <p>
+                            - {{chat.first_own}} {{chat.last_own}}
+                    </p>
+                    `</li>
+                    <hr>
+                    {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+                    <form role="form" action="/message" method="POST">
+                        <input type="text" name="text-owner" id="text-owner" placeholder="Send the owner a message">
+                        <button type="submit" value="Message Owner" class="btn btn-default">Send</button>
+                    </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
+

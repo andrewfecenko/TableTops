@@ -1,0 +1,50 @@
+{% extends "template.html" %}
+
+{% block body %}
+<h2>{{user.first_name}} {{user.sur_name}}</h2>
+<div>
+  {{user.blurb}}
+</div>
+<br>
+<div class="container fluid">
+	<form role="form" action="{{ url_for('edit_user') }}" method="POST">
+	<div class="row fluid">
+		<div class="col-sm-4 column">
+		{% if edit_form.errors['fname'] %}
+		*{{edit_form.errors['fname'][0]}}
+		{% endif %}
+		{{ edit_form.fname (placeholder="First Name", class="form-control") }}
+		<br>
+		{% if edit_form.errors['lname'] %}
+		*{{edit_form.errors['lname'][0]}}
+		{% endif %}
+		{{ edit_form.lname (placeholder="Last Name", class="form-control") }}
+		<br>
+		</div>
+	</div>
+	<div class="row fluid">
+		<div class="col-sm-4 column">
+		{% if edit_form.errors['email'] %}
+		*{{edit_form.errors['email'][0]}}
+		{% endif %}
+		{{ edit_form.email (placeholder="Email", class="form-control") }}
+		<br>
+		</div>
+	</div>
+	<div class="row fluid">
+		<div class="col-sm-6 column">
+			{{ edit_form.blurb (placeholder="Blurb", class="form-control", rows="6")}}
+		</div>
+	</div>
+	<br>
+	{% if success %}
+	{{success}}
+	<br>
+	{% endif %}
+	<button type="submit" value="Save Changes" class="btn btn-default">Save Changes</button>
+</div>
+
+
+
+
+{% endblock %}
