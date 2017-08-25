@@ -5,16 +5,16 @@ TableTops looks to turn office spaces into communities of likeminded individuals
 If you are a land lord and want to open up a new coworking space or are just looking to fill a few seats then TableTops will help you get there. Create a new office space, upload some pictures and we’ll expose you to hundreds of tenants looking for office space.
 
 #### Technical Features ####
-**Login/Logout**
-**Administrative functions**
-**In-app messaging**
-**Google Maps JavaScript API integration**
-**Data persistence with PostgreSQL**
-**File uploading**
-**Searching**
-**Search result filtering/querying/sorting**
-**User and rental space reviewing**
-**In-app rental applications**
+Login/Logout<br>
+Administrative functions<br>
+In-app messaging<br>
+Google Maps JavaScript API integration<br>
+Data persistence with PostgreSQL<br>
+File uploading<br>
+Searching<br>
+Search result filtering/querying/sorting<br>
+User and rental space reviewing<br>
+In-app rental applications<br>
 
 
 ### Installation: ###
@@ -32,7 +32,8 @@ Insert this key into the quotes on line 24 of app/server.py<br>
 `python db_create.py` in the main folder
 
 ### Running the webserver: ###
-`python run.py` in the main folder
+`python run.py` in the main folder <br>
+The website can be accessed [here](127.0.0.1:5000)<br>
 
 ### Screenshots ###
 ![Alt text](/app/static/readme/ExploreSpaces.png?raw=true "Explore Spaces Page")
