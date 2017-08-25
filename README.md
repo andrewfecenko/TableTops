@@ -18,6 +18,8 @@ In-app rental applications<br>
 
 
 ### Installation: ###
+This app only works with Python 2.x <br>
+It will not work with Python 3.x <br>
 `pip2.7 install -r requirements.txt`
 
 
@@ -29,7 +31,7 @@ Insert this key into the quotes on line 24 of app/server.py<br>
 `GOOGLE_API_KEY = ''`<br>
 
 #### Populating your database with samples: ####
-`python db_create.py` in the main folder
+`python2.7 db_create.py` in the main folder
 
 ### Running the webserver: ###
 `python run.py` in the main folder <br>
