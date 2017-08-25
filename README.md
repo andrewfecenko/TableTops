@@ -12,3 +12,6 @@ Once you have the previous steps completed, go to the config.py and set up the S
 
 To run the webserver:
 `python run.py` in the main folder
+
+
+![Alt text](/app/static/readme/ExploreSpaces.png?raw=true "Explore Spaces Page")
