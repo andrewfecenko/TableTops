@@ -10,7 +10,7 @@ if sys.version_info >= (3, 0):
 	enable_search = False
 else:
 	enable_search = True
-	import flask.ext.whooshalchemy as whooshalchemy
+	import flask_whooshalchemy as whooshalchemy
 
 space_tens = db.Table('space_tenants',
 	db.Column('space_id', db.Integer,db.ForeignKey('spaces.space_id')),

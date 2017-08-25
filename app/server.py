@@ -1,11 +1,11 @@
 import os
 from flask import Flask, abort, render_template, redirect, url_for, request, \
     session, flash, g
-from flask.ext.login import login_user, logout_user, current_user, \
+from flask_login import login_user, logout_user, current_user, \
     login_required
 from functools import wraps
 from app import app, db, lm
-from flask.ext.wtf import Form
+from flask_wtf import Form
 from forms import *
 from models import *
 from config import MAX_SEARCH_RESULTS

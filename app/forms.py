@@ -1,8 +1,8 @@
-from flask.ext.wtf import Form, RecaptchaField
+from flask_wtf import Form, RecaptchaField
 from wtforms import BooleanField, StringField, TextField, PasswordField, validators, TextAreaField
 from wtforms.validators import DataRequired,InputRequired, Email
 from wtforms.fields.html5 import EmailField  
-from flask.ext.login import current_user
+from flask_login import current_user
 from models import app_users
 from server import db
 from app import bcrypt
